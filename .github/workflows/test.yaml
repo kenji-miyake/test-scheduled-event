@@ -1,0 +1,13 @@
+name: test
+
+on:
+  schedule:
+    - cron: 0,10,20,30,40,50 * * * *
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug
+        run: echo "${{ github.ref_name }}" "${{ github.event.repository.default_branch }}"
